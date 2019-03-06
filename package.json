@@ -2,13 +2,15 @@
   "name": "kiosk",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "dependencies": {
+    "latest-version": "^4.0.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently 'electron .' 'react-scripts start'",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -21,5 +23,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^4.0.7"
+  }
 }
