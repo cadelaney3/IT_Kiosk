@@ -3,10 +3,24 @@ import { connect } from 'react-redux';
 import uuidv1 from 'uuid';
 import { inputID } from '../actions/index';
 import Button from '@material-ui/core/Button';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import green from '@material-ui/core/colors/green';
+import classNames from 'classnames';
 
+const StyledButton = withStyles({
+  root: {
+    blackgroud: 'primary',
+    color: 'white',
+    height: 48,
+    margin: '30px 30px',
+    padding: '0 20px',
+    justifyContent: 'center',
+  },
+  label: {
+    textTransform: 'capitalize',
+  },
+})(Button);
 
 const styles = theme => ({
     root: {
@@ -16,6 +30,9 @@ const styles = theme => ({
     margin: {
       margin: theme.spacing.unit,
     },
+    cssRoot: {
+        color: "primary",
+    }
 });
 const theme = createMuiTheme({
   palette: {
@@ -29,6 +46,7 @@ function mapDispatchToProps(dispatch) {
         inputID: id => dispatch(inputID(id))
     };
 }
+
 
 class ConnectedForm extends Component {
     constructor() {
@@ -63,7 +81,7 @@ class ConnectedForm extends Component {
                     <MuiThemeProvider theme={theme}>
                         <TextField
                             className={styles.margin}
-                            label="MuiThemeProvider"
+                            label="GUI ID"
                             variant="outlined"
                             id="title"
                             value={ title }
@@ -71,9 +89,9 @@ class ConnectedForm extends Component {
                         />
                     </MuiThemeProvider>
                 </div>
-                <Button variant="contained" color="primary" type="submit">
-                    SAVE
-                </Button>
+                <StyledButton variant="contained" color="primary" type="submit"> {/*className={classNames(styles.margin, styles.button)}>*/}
+                    SUBMIT
+                </StyledButton>
             </form>
         );
     }
