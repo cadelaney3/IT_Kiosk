@@ -7,12 +7,14 @@
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "classnames": "^2.2.6",
+    "csv-write-stream": "^2.0.0",
     "latest-version": "^4.0.0",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.5",
-    "react-select": "^2.4.2"
+    "react-select": "^2.4.2",
+    "time": "^0.12.0"
   },
   "scripts": {
     "start": "concurrently 'electron .' 'react-scripts start'",
